@@ -1,13 +1,15 @@
  # The splat operator (*) can handle unknown number of argument
  # It converts array to parameter and vice versa
-def add(*nums)
-  #.scan(/(\d,\d\s\d)/).flatten.join(",")
-  return 'error' if nums.map {|num| num[-1] == "," }.any?
-  joined_arguments = nums.join(",") # Probably it should be here. $ id the possible answer
+
+ def add(*nums)
+  return 'error' if nums.map {|num| num[-1] =~ /,/ }.any?
+  joined_arguments = nums.join(",")
   p joined_arguments
-  list_of_strings = joined_arguments.split(/[, \n]/)
-  #list_of_strings = joined_arguments.scan(/\d/)
+
+  list_of_strings = joined_arguments.scan(/\d+/)
+  #list_of_strings = joined_arguments.split(/[, \n]/)
   p list_of_strings
+
   sum = list_of_strings.inject(0) { |sum, num| sum + num.to_i}
 
   p sum
@@ -32,13 +34,24 @@ RSpec.describe "string calculator" do
 
   it "returns sum when split with newlines separators and comma" do
     expect(add("1,2\n3")).to eq(6)
+    #expect(add("//sep\n2sep5")).to eq(7)
   end
 
-  # it "returns sum when split with newlines separators and comma" do
-  #   expect(add("1,2\n3,5\n1,1,10\n5,6,1,2\n3")).to eq(63)
-  # end
+  it "returns sum when split with newlines separators and comma" do
+    expect(add("1,2\n3,5\n1,1,10\n5,6,1,2\n3")).to eq(40)
+  end
 
   it "returns an error when separator is added to end of an element" do
     expect(add("1,2,")).to eq("error")
   end
+
+  it "returns sum when scan through with the digit" do
+      expect(add("//;\n1;3")).to eq(4)
+  end
+
+  #Allow the add method to handle different delimiters
+
+# To change the delimiter, the beginning of the input will contain a separate line that looks like this:
+# //[delimiter]\n[numbers]
+# “//;\n1;3” should return “4”
 end
