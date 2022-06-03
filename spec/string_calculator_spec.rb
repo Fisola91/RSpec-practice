@@ -3,6 +3,7 @@
 
  def add(*nums)
   return 'error' if nums.map {|num| num[-1] =~ /,/ }.any?
+  return "error" if nums.map {|num| num[2] =~ /,/ }.any?
   joined_arguments = nums.join(",")
   p joined_arguments
 
@@ -55,6 +56,10 @@ RSpec.describe "string calculator" do
 
   it "returns sum when scan through with the digit" do
     expect(add("//sep\n2sep5")).to eq(7)
+  end
+
+  it "returns sum when scan through with the digit" do
+    expect(add("//,\n1|2|3")).to eq("error")
   end
 
 
