@@ -53,9 +53,9 @@ RSpec.describe "string calculator" do
     expect(add("//|\n1|2|3")).to eq(6)
   end
 
-  # it "returns sum when scan through with the digit" do
-  #   expect(add("//sep\n2sep5")).to eq(7)
-  # end
+  it "returns sum when scan through with the digit" do
+    expect(add("//sep\n2sep5")).to eq(7)
+  end
 
 
   #Allow the add method to handle different delimiters
