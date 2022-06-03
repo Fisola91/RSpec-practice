@@ -2,8 +2,7 @@
  # It converts array to parameter and vice versa
 
  def add(*nums)
-  return 'error' if nums.map {|num| num[-1] =~ /,/ }.any?
-  return "error" if nums.map {|num| num[2] =~ /,/ }.any?
+  return 'error' if nums.map {|num| num[-1] =~ /,/ || num[2] =~ /,/ }.any?
   joined_arguments = nums.join(",")
   p joined_arguments
 
@@ -58,9 +57,13 @@ RSpec.describe "string calculator" do
     expect(add("//sep\n2sep5")).to eq(7)
   end
 
-  it "returns sum when scan through with the digit" do
-    expect(add("//,\n1|2|3")).to eq("error")
+  it "returns an error when ',' is found instead of '|'" do
+    expect(add("//,\n1|2|3")).to eq("error"), "'|' expected but ',' found at position 3."
   end
+
+  # "expected empty array, got #{array.inspect}"
+  # “//|\n1|2,3” is invalid and should
+  # return an error (or throw an exception) with the message “‘|’ expected but ‘,’ found at position 3.”
 
 
   #Allow the add method to handle different delimiters
