@@ -1,7 +1,7 @@
  # The splat operator (*) can handle unknown number of argument
  # It converts array to parameter and vice versa
 
- def add(*nums)
+def add(*nums)
   return 'error' if nums.map {|num| num[-1] =~ /,/ || num[2] =~ /,/ }.any?
   joined_arguments = nums.join(",")
   p joined_arguments
