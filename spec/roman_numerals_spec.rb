@@ -1,4 +1,4 @@
-def convert(int)
+class Roman
   symbols = [
     ["I", 1],
     ["II", 2],
@@ -12,21 +12,24 @@ def convert(int)
     ["D", 500],
     ["M", 1000]
   ]
-#   1 ➔ I
-#   2 ➔ II
-#   3 ➔ III
-#   4 ➔ IV
-#   5 ➔ V
-#   9 ➔ IX
-#  21 ➔ XXI
-#  50 ➔ L
-# 100 ➔ C
-# 500 ➔ D
-# 1000 ➔ M
+  def convert(int)
+    result = " "
+    symbols.each do |roman, integer|
+      while int >= integer
+        result += roman
+        int -= integer
+      end
+    end
+    result
+  end
 end
 
 
 RSpec.describe "Roman numerals" do
+  before do
+    @roman = Roman.new
+  end
+
   it "converts 1 for 'I'" do
     expect(convert(1)).to eq("I")
   end
