@@ -1,26 +1,22 @@
 class Roman
-  Symbols = [
+  def initialize
+    @result = ''
+    @symbols = [
     ["I", 1],
     ["II", 2],
     ["III", 3],
-    ["IV", 4],
-    ["V", 5],
-    ["IX", 9],
-    ["XXI", 21],
-    ["L", 50],
-    ["C", 100],
-    ["D", 500],
-    ["M", 1000]
+    ["IV", 4]
   ]
+  end
+
   def convert(int)
-    result = ""
-    Symbols.each do |roman, integer|
+    @symbols.each do |roman, integer|
       while int >= integer
-        result += roman
+        @result += roman
         int -= integer
       end
     end
-    result
+    @result
   end
 end
 
