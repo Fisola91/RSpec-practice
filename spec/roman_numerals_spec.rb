@@ -13,7 +13,7 @@ class Roman
     ["M", 1000]
   ]
   def convert(int)
-    result = " "
+    result = ""
     Symbols.each do |roman, integer|
       while int >= integer
         result += roman
@@ -68,7 +68,7 @@ RSpec.describe "Roman numerals" do
     end
   end
 
-  conext "converting substraction" do
+  context "converting substraction" do
       it "converts 4 for 'IV'" do
       expect(@roman.convert(4)).to eq("IV")
     end
