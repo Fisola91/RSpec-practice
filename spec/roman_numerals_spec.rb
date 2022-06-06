@@ -1,17 +1,17 @@
 def convert(int)
-  case int
-  when 1 then "I"
-  when 2 then "II"
-  when 3 then "III"
-  when 4 then "IV"
-  when 5 then "V"
-  when 9 then "IX"
-  when 21 then "XXI"
-  when 50 then "L"
-  when 100 then "C"
-  when 500 then "D"
-  when 1000 then "M"
-  end
+  # case int
+  # when 1 then "I"
+  # when 2 then "II"
+  # when 3 then "III"
+  # when 4 then "IV"
+  # when 5 then "V"
+  # when 9 then "IX"
+  # when 21 then "XXI"
+  # when 50 then "L"
+  # when 100 then "C"
+  # when 500 then "D"
+  # when 1000 then "M"
+  # end
 
 end
 
