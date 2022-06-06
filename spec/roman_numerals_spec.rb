@@ -2,6 +2,7 @@ class Roman
   def initialize
     @result = ''
     @symbols = [
+    ["XXI", 21],
     ["IX", 9],
     ["V", 5],
     ["IV", 4],
@@ -59,9 +60,9 @@ RSpec.describe "Roman numerals" do
       expect(roman.convert(3)).to eq("III")
     end
 
-  #   it "converts 21 for 'XXI'" do
-  #     expect(roman.convert(21)).to eq("XXI")
-  #   end
+    it "converts 21 for 'XXI'" do
+      expect(roman.convert(21)).to eq("XXI")
+    end
   end
 
   context "converting substraction" do
