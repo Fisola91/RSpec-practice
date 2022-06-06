@@ -2,6 +2,7 @@ class Roman
   def initialize
     @result = ''
     @symbols = [
+    ["D", 500],
     ["C", 100],
     ["L", 50],
     ["XXI", 21],
@@ -44,9 +45,9 @@ RSpec.describe "Roman numerals" do
       expect(roman.convert(100)).to eq("C")
     end
 
-    # it "converts 500 for 'D'" do
-    #   expect(roman.convert(500)).to eq("D")
-    # end
+    it "converts 500 for 'D'" do
+      expect(roman.convert(500)).to eq("D")
+    end
 
     # it "converts 1000 for 'M'" do
     #   expect(roman.convert(1000)).to eq("M")
