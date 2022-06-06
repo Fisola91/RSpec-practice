@@ -49,9 +49,9 @@ RSpec.describe "Roman numerals" do
       expect(roman.convert(500)).to eq("D")
     end
 
-    # it "converts 1000 for 'M'" do
-    #   expect(roman.convert(1000)).to eq("M")
-    # end
+    it "converts 1000 for 'M'" do
+      expect(roman.convert(1000)).to eq("M")
+    end
   end
 
   context "converting additions" do
