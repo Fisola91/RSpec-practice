@@ -1,18 +1,28 @@
 def convert(int)
-  # case int
-  # when 1 then "I"
-  # when 2 then "II"
-  # when 3 then "III"
-  # when 4 then "IV"
-  # when 5 then "V"
-  # when 9 then "IX"
-  # when 21 then "XXI"
-  # when 50 then "L"
-  # when 100 then "C"
-  # when 500 then "D"
-  # when 1000 then "M"
-  # end
-
+  symbols = [
+    ["I", 1],
+    ["II", 2],
+    ["III", 3],
+    ["IV", 4],
+    ["V", 5],
+    ["IX", 9],
+    ["XXI", 21],
+    ["L", 50],
+    ["C", 100],
+    ["D", 500],
+    ["M", 1000]
+  ]
+#   1 ➔ I
+#   2 ➔ II
+#   3 ➔ III
+#   4 ➔ IV
+#   5 ➔ V
+#   9 ➔ IX
+#  21 ➔ XXI
+#  50 ➔ L
+# 100 ➔ C
+# 500 ➔ D
+# 1000 ➔ M
 end
 
 
