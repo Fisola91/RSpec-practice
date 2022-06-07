@@ -1,7 +1,6 @@
 class Roman
-  def initialize
-    @result = ''
-    @symbols = [
+    SYMBOLS = [
+    ["M", 1000],
     ["D", 500],
     ["C", 100],
     ["L", 50],
@@ -13,16 +12,17 @@ class Roman
     ["II", 2],
     ["I", 1]
   ]
-  end
 
   def convert(int)
-    @symbols.each do |roman, integer|
+    result = ""
+    SYMBOLS.each do |roman, integer|
       while int >= integer
-        @result << roman
+        p result
+        result += roman
         int -= integer
       end
     end
-    @result
+    result
   end
 end
 
@@ -73,8 +73,18 @@ RSpec.describe "Roman numerals" do
       expect(roman.convert(4)).to eq("IV")
     end
 
-    it "converts 9 for 'IX'" do
+    fit "converts 9 for 'IX'" do
       expect(roman.convert(9)).to eq("IX")
+    end
+  end
+
+  context "calling the method multiple times" do
+    fit "works correctly" do
+      roman.convert(1)
+      roman.convert(10)
+      roman.convert(100)
+      roman.convert(500)
+      expect(roman.convert(5)).to eq("V")
     end
   end
 end
