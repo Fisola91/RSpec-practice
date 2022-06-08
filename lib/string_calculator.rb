@@ -6,15 +6,12 @@ class StringCalculator
 
     if explicit_delimiter?
       if no_illegal_characters?
-        @arguments = characters.split(delimiter)
+        @arguments = characters.split(delimiter) # variable "argurment" is Noted
+
+
       else
         handle_illegal_character
       end
-    end
-
-    joined_arguments = arguments.join(",")
-    if joined_arguments != "" && joined_arguments !~ /\d$/
-      raise ArgumentError
     end
 
     list_of_strings = joined_arguments.scan(/\d+/)
@@ -50,6 +47,14 @@ class StringCalculator
 
   def explicit_delimiter?
     arguments && arguments.first =~ DELIMITER
+  end
+
+  def joined_arguments
+    if arguments.join(",") != "" &&  arguments.join(",") !~ /\d$/
+      raise ArgumentError
+    else
+      arguments.join(",")
+    end
   end
 
   def handle_illegal_character
