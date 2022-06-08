@@ -26,7 +26,7 @@ RSpec.describe StringCalculator do
     expect(subject.add("1,2\n3,5\n1,1,10\n5,6,1,2\n3")).to eq(40)
   end
 
-  fit "returns an error when separator is added to end of an element" do
+  it "returns an error when separator is added to end of an element" do
     expect { subject.add("1,2,") }.to raise_error(ArgumentError)
   end
 
@@ -56,7 +56,7 @@ RSpec.describe StringCalculator do
     )
   end
 
-  fit "returns sum when scan through" do
+  it "returns sum when scan through" do
     expect(subject.add("//|\n2|2|2")).to eq(6)
 
   end
