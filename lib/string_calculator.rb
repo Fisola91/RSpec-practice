@@ -1,18 +1,17 @@
 class StringCalculator
   DELIMITER = %r{^//.\n.+$}
-  def add(*arguments)
-    if explicit_delimiter?(arguments)
-      match_data = arguments.first.match(%r{^//(?<delimiter>.)\n(?<numbers>.+)$})
-      delimiter = match_data[:delimiter]
-      numbers = match_data[:numbers]
 
-      character_list = numbers.split("")
-      if character_list.all? { |char| char =~ /\d/ || char == delimiter }
-        arguments = numbers.split(delimiter)
+  def add(*args)
+    @arguments = args
+
+    if explicit_delimiter?
+      if no_illegal_characters?
+        @arguments = characters.split(delimiter)
       else
-        illegal_character(character_list, delimiter, numbers)
+        handle_illegal_character
       end
     end
+
     joined_arguments = arguments.join(",")
     if joined_arguments != "" && joined_arguments !~ /\d$/
       raise ArgumentError
@@ -23,13 +22,39 @@ class StringCalculator
     sum
   end
 
-  def explicit_delimiter?(arguments)
+  private
+
+  def arguments
+    @arguments
+  end
+
+  def delimiter
+    match_data[:delimiter]
+  end
+
+  def characters
+    match_data[:characters]
+  end
+
+  def no_illegal_characters?
+    character_list.all? { |char| char =~ /\d/ || char == delimiter }
+  end
+
+  def character_list
+    characters.split("")
+  end
+
+  def match_data
+    arguments.first.match(%r{^//(?<delimiter>.)\n(?<characters>.+)$})
+  end
+
+  def explicit_delimiter?
     arguments && arguments.first =~ DELIMITER
   end
 
-  def illegal_character(character_list, delimiter, numbers)
+  def handle_illegal_character
     illegal_char = character_list.find { |char| char !~ /\d/ && char != delimiter }
-    illegal_char_position = numbers =~ /#{illegal_char}/
+    illegal_char_position = characters =~ /#{illegal_char}/
     raise ArgumentError, "'#{delimiter}' expected but '#{illegal_char}' found at position #{illegal_char_position}."
   end
 end
