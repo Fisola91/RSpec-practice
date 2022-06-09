@@ -18,7 +18,7 @@ class Game
   end
 end
 
-RSpec.fdescribe Game do
+RSpec.describe Game do
   it "calculate score after one roll" do
     subject.roll(1)
     expect(subject.score).to eq(1)
