@@ -23,8 +23,8 @@ RSpec.fdescribe "make a colorful number" do
       expect(colorful?(255)).to eq(false)
     end
 
-
+    it "returns false for 10 which is not colorful" do
+      expect(colorful?(10)).to eq(false)
+    end
   end
-
-
 end
