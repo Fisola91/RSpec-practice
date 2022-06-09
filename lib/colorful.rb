@@ -10,9 +10,11 @@ def colorful?(number)
   digits_arr << digits_arr[0] * digits_arr[1]
   digits_arr << digits_arr[1] * digits_arr[2]
   digits_arr << digits_arr[0] * digits_arr[2] * digits_arr[3]
+  p digits_arr
 
   digits_arr.uniq == digits_arr ? true : false
 
   # if product output is uniq return true, hecne false
 
 end
+colorful?(255)
