@@ -73,13 +73,13 @@ RSpec.describe "Roman numerals" do
       expect(roman.convert(4)).to eq("IV")
     end
 
-    fit "converts 9 for 'IX'" do
+    it "converts 9 for 'IX'" do
       expect(roman.convert(9)).to eq("IX")
     end
   end
 
   context "calling the method multiple times" do
-    fit "works correctly" do
+    it "works correctly" do
       roman.convert(1)
       roman.convert(10)
       roman.convert(100)

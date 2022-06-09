@@ -7,8 +7,6 @@ class StringCalculator
     if explicit_delimiter?
       if no_illegal_characters?
         @arguments = characters.split(delimiter) # variable "argurment" is Noted
-
-
       else
         handle_illegal_character
       end

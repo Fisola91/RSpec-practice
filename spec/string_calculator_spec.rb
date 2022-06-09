@@ -19,9 +19,9 @@ RSpec.describe StringCalculator do
 
   it "returns sum when split with newlines separators and comma" do
     expect(subject.add("1,2\n3")).to eq(6)
-    #expect(subject.add("//sep\n2sep5")).to eq(7)
   end
 
+  # Behind the scene, when you use it, spec add metadata
   it "returns sum when split with newlines separators and comma" do
     expect(subject.add("1,2\n3,5\n1,1,10\n5,6,1,2\n3")).to eq(40)
   end
