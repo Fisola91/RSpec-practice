@@ -4,17 +4,23 @@ def colorful?(number)
   # return true if the number is an integer
   return true if [0,1].include? number
   # split the number into an array using "chars method" and map over it
-  digits_arr = number.to_s.chars.map { |digit| digit.to_i}
-
-  # Multiply the consecutive subset of number
-  digits_arr << digits_arr[0] * digits_arr[1]
-  digits_arr << digits_arr[1] * digits_arr[2]
-  digits_arr << digits_arr[0] * digits_arr[2] * digits_arr[3]
-  p digits_arr
-
-  digits_arr.uniq == digits_arr ? true : false
+  digits_arr = number.digits.reverse
+  product = subset_product(digits_arr)
+  product.uniq == product ? true : false
 
   # if product output is uniq return true, hecne false
 
 end
-colorful?(255)
+
+def subset_product(digits)
+  product = digits.dup
+  # Multiply the consecutive subset of number
+  if digits.size > 1
+    product << digits[0] * digits[1]
+  end
+  if digits.size > 2
+    product << digits[1] * digits[2]
+    product << digits[0] * digits[2] * digits[3]
+  end
+  product
+end
