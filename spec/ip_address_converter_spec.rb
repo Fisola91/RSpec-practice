@@ -1,3 +1,5 @@
+require "ip_address_converter"
+
 RSpec.describe "ip address converter" do
   context "convert ip adress to number" do
     it "returns number for ip address string" do
