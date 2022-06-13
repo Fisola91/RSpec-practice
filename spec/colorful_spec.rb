@@ -1,5 +1,5 @@
 require "colorful"
-RSpec.fdescribe "make a colorful number" do
+RSpec.describe "make a colorful number" do
   context "returning true" do
     it "returns true for 263 which is a colorful number" do
     expect(colorful?(263)).to eq(true)
