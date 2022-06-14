@@ -4,9 +4,7 @@ class BoutiqueInventory
   end
 
   def item_names
-    @items.map do |item|
-      item[:name]
-    end.sort
+    @items.map { |item| item[:name]}.sort
   end
 
   def cheap
