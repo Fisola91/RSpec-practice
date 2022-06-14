@@ -15,4 +15,12 @@ class BoutiqueInventory
     @items.select { |item| item[:quantity_by_size].empty?}
   end
 
+  def stock_for_item(name)
+    @items.select do |item|
+      return item[:quantity_by_size] if item[:name].include?(name)
+    end
+
+  end
+
+
 end

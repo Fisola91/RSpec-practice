@@ -25,4 +25,8 @@ RSpec.describe BoutiqueInventory do
   it "returns any items that are out of stock" do
     expect(boutique_inventory.out_of_stock).to eq([{price: 50.00, name: "Red Short Skirt", quantity_by_size: {}}])
   end
+
+  it "returns the stock of an item by its name" do
+    expect(boutique_inventory.stock_for_item("Black Short Skirt")).to eq({s: 1, xl: 4})
+  end
 end
