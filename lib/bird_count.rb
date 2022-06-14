@@ -6,4 +6,8 @@ class BirdCount
   def last_week
     @birds
   end
+
+  def yesterday
+    @birds[-2]
+  end
 end

@@ -6,4 +6,8 @@ RSpec.describe BirdCount do
   it "retuns count of last week" do
     expect(bird_count.last_week).to eq([2, 5, 0, 7, 4, 1])
   end
+
+  it "returns number of birds visited yesterday" do
+    expect(bird_count.yesterday).to eq(4)
+  end
 end

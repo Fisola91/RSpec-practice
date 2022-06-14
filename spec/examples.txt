@@ -1,6 +1,7 @@
 example_id                                 | status | run_time        |
 ------------------------------------------ | ------ | --------------- |
-./spec/bird_count_spec.rb[1:1]             | passed | 0.00184 seconds |
+./spec/bird_count_spec.rb[1:1]             | passed | 0.00143 seconds |
+./spec/bird_count_spec.rb[1:2]             | passed | 0.00033 seconds |
 ./spec/boutique_inventory_spec.rb[1:1]     | passed | 0.00035 seconds |
 ./spec/boutique_inventory_spec.rb[1:2]     | passed | 0.01416 seconds |
 ./spec/boutique_inventory_spec.rb[1:3]     | passed | 0.00365 seconds |
