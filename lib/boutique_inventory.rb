@@ -11,4 +11,8 @@ class BoutiqueInventory
     @items.select {|item| item[:price] < 30}
   end
 
+  def out_of_stock
+    @items.select { |item| item[:quantity_by_size].empty?}
+  end
+
 end
