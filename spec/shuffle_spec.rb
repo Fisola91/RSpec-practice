@@ -6,4 +6,6 @@ RSpec.describe "shuffle method" do
     expect(shuffle(input)).to contain_exactly(1,2,3,4,5,6,7,8,10,9)
     expect(shuffle(input.length)).to eq(10)
   end
+
+
 end

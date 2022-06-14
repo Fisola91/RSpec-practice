@@ -15,4 +15,10 @@ RSpec.describe BoutiqueInventory do
         "Maxi Brown Dress",
         "Red Short Skirt"])
   end
+
+  it "returns any item that cost less than $30" do
+    expect(boutique_inventory.cheap).to match_array([
+      {price: 29.99, name: "Black Short Skirt", quantity_by_size: {s: 1, xl: 4}},
+      {price: 20.00, name: "Bamboo Socks Cats", quantity_by_size: {s: 7, m: 2}}])
+  end
 end
