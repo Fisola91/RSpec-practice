@@ -18,4 +18,8 @@ RSpec.describe BirdCount do
   it "returns number of busy days" do
     expect(bird_count.busy_days).to eq(2)
   end
+
+  it "returns true if there was a day zero bird visited" do
+    expect(bird_count.day_without_birds?).to eq(true)
+  end
 end

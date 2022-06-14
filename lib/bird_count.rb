@@ -18,4 +18,8 @@ class BirdCount
   def busy_days
     @birds.select { |bird| bird >= 5}.count
   end
+
+  def day_without_birds?
+    @birds.find { |bird| bird.zero?}? true : false
+  end
 end
