@@ -14,4 +14,8 @@ RSpec.describe BirdCount do
   it "returns total number of visiting birds" do
     expect(bird_count.total).to eq(19)
   end
+
+  it "returns number of busy days" do
+    expect(bird_count.busy_days).to eq(2)
+  end
 end

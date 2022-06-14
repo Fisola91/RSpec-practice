@@ -14,4 +14,8 @@ class BirdCount
   def total
     @birds.inject(:+)
   end
+
+  def busy_days
+    @birds.select { |bird| bird >= 5}.count
+  end
 end
