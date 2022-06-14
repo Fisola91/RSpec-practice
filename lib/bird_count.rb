@@ -1,25 +1,25 @@
 class BirdCount
   def initialize(bird_count = [])
-    @birds = bird_count
+    @birds_per_day = bird_count
   end
 
   def last_week
-    @birds
+    @birds_per_day
   end
 
   def yesterday
-    @birds[-2]
+    @birds_per_day[-2]
   end
 
   def total
-    @birds.inject(:+)
+    @birds_per_day.sum
   end
 
   def busy_days
-    @birds.select { |bird| bird >= 5}.count
+    @birds_per_day.count { |bird| bird >= 5}
   end
 
   def day_without_birds?
-    @birds.find { |bird| bird.zero?}? true : false
+    @birds_per_day.include?(0)
   end
 end
