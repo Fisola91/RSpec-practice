@@ -29,4 +29,8 @@ RSpec.describe BoutiqueInventory do
   it "returns the stock of an item by its name" do
     expect(boutique_inventory.stock_for_item("Black Short Skirt")).to eq({s: 1, xl: 4})
   end
+
+  it "returns sum of items in the store room" do
+    expect(boutique_inventory.total_stock).to eq(36)
+  end
 end
