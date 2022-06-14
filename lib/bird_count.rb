@@ -4,5 +4,6 @@ class BirdCount
   end
 
   def last_week
+    @birds
   end
 end
