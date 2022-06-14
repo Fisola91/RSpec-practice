@@ -16,16 +16,11 @@ class BoutiqueInventory
   end
 
   def stock_for_item(name)
-    @items.map do |item|
-      return item[:quantity_by_size] if item[:name].include?(name)
-    end
+    @items.find {|item| item[:name] == name }[:quantity_by_size]
   end
 
   def total_stock
-    @items.map do |item|
-      item[:quantity_by_size]
-      .values.sum
-    end.inject(:+)
+    @items.map {|item| item[:quantity_by_size].values.sum}.inject(:+)
   end
 
 end
