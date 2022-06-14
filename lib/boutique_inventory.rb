@@ -20,7 +20,7 @@ class BoutiqueInventory
   end
 
   def total_stock
-    @items.map {|item| item[:quantity_by_size].values.sum}.inject(:+)
+    @items.map {|item| item[:quantity_by_size].values.sum}.sum
   end
 
 end
