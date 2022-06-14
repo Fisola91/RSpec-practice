@@ -10,4 +10,8 @@ class BirdCount
   def yesterday
     @birds[-2]
   end
+
+  def total
+    @birds.inject(:+)
+  end
 end
