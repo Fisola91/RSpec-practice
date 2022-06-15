@@ -33,4 +33,5 @@ RSpec.describe BoutiqueInventory do
   it "returns sum of items in the store room" do
     expect(boutique_inventory.total_stock).to eq(36)
   end
+
 end
