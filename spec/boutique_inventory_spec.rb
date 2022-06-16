@@ -34,4 +34,5 @@ RSpec.describe BoutiqueInventory do
     expect(boutique_inventory.total_stock).to eq(36)
   end
 
+
 end
