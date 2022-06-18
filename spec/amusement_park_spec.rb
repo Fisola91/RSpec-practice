@@ -12,6 +12,7 @@ RSpec.describe Attendee do
   end
 
   it "returns pass_id when set as an argument to the issue_pass" do
-    expect()
+    attendee_1.issue_pass!(42)
+    expect(attendee_1.pass_id).to eq(42)
   end
 end
