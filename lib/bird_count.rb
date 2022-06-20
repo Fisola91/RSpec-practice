@@ -16,10 +16,16 @@ class BirdCount
   end
 
   def busy_days
-    @birds_per_day.count { |bird| bird >= 5}
+    @birds_per_day.count { |bird| bird >= 5 }
   end
 
   def day_without_birds?
     @birds_per_day.include?(0)
+  end
+
+  def validate_argument
+    if bird_count.nil?
+      raise ArgumentError, "bird count must be an array object"
+    end
   end
 end
