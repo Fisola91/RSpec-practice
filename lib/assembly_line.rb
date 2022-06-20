@@ -1,8 +1,15 @@
 class AssemblyLine
+
+  attr_reader :speed
+
   CARS_PRODUCED_PER_HOUR = 221
+
   def initialize(speed)
-    #raise ArgumentError, 'speed must be between 1 and 10' unless speed.between? 1, 10
+    #raise ArgumentError, "speed must be betweeen 1 and 10" unless speed.between? 1, 10
     @speed = speed
+    if @speed.nil?
+      raise ArgumentError, "speed cannot be nil"
+    end
   end
 
   def success_rate
@@ -15,14 +22,22 @@ class AssemblyLine
       0.8
     when 10
       0.77
+    else
+      raise ArgumentError, "speed must be between 1 and 10"
     end
   end
 
   def production_rate_per_hour
-    (@speed * CARS_PRODUCED_PER_HOUR) * 90/100.0
+    (@speed * CARS_PRODUCED_PER_HOUR) * success_rate
   end
 
   def working_items_per_minute
-    (production_rate_per_hour/60).to_i
+    (production_rate_per_hour / 60).to_i
   end
+
+  # private
+
+  # def validate_argument
+  #   raise ArgumentError, "speed must be betweeen 1 and 10" unless speed.between? 1, 10
+  # end
 end
