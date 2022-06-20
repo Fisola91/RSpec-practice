@@ -1,6 +1,9 @@
 class BirdCount
+  attr_reader :bird_count
+
   def initialize(bird_count = [])
     @birds_per_day = bird_count
+    validate_argument
   end
 
   def last_week
@@ -23,8 +26,10 @@ class BirdCount
     @birds_per_day.include?(0)
   end
 
+  private
+
   def validate_argument
-    if bird_count.nil?
+    if @birds_per_day.nil?
       raise ArgumentError, "bird count must be an array object"
     end
   end
