@@ -7,9 +7,8 @@ class AssemblyLine
   def initialize(speed)
     #raise ArgumentError, "speed must be betweeen 1 and 10" unless speed.between? 1, 10
     @speed = speed
-    if @speed.nil?
-      raise ArgumentError, "speed cannot be nil"
-    end
+    validate_argument
+
   end
 
   def success_rate
@@ -35,9 +34,15 @@ class AssemblyLine
     (production_rate_per_hour / 60).to_i
   end
 
-  # private
+  private
 
-  # def validate_argument
-  #   raise ArgumentError, "speed must be betweeen 1 and 10" unless speed.between? 1, 10
-  # end
+  def validate_argument
+    #raise ArgumentError, "speed must be betweeen 1 and 10" unless speed.between? 1, 10
+    begin
+      speed.between? 1, 10
+    rescue ArgumentError => e
+      puts e.message
+
+    end
+  end
 end
