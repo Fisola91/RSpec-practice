@@ -21,9 +21,9 @@ class AssemblyLine
       0.8
     when 10
       0.77
-    else
-      raise ArgumentError, "speed must be between 1 and 10"
-    end
+    # else
+    #   #raise ArgumentError, "speed must be between 1 and 10"
+    # end
   end
 
   def production_rate_per_hour
@@ -39,10 +39,10 @@ class AssemblyLine
   def validate_argument
     #raise ArgumentError, "speed must be betweeen 1 and 10" unless speed.between? 1, 10
     begin
-      speed.between? 1, 10
+
+      raise ArgumentError, "speed must be between 1 and 10" unless speed.between? 1, 10
     rescue ArgumentError => e
       puts e.message
-
     end
   end
 end
