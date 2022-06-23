@@ -20,6 +20,10 @@ RSpec.describe Moviegoer do
     it "allows to watch scary movie if 18 and above" do
       expect(moviegoer_3.watch_scary_movie?).to eq(true)
     end
+
+    it "doesn't allow to watch scary movie if age is less than 18" do
+      expect(moviegoer_4.watch_scary_movie?).to eq(false)
+    end
   end
 
 
