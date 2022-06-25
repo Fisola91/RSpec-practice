@@ -33,7 +33,7 @@ RSpec.describe Moviegoer do
     it "returns true for a movie club member" do
       expect(moviegoer_3.claim_free_popcorn!).to eq("🍿")
     end
-    it "returns error for a movie club member" do
+    it "returns error for a non-member" do
       expect { moviegoer_4.claim_free_popcorn! }.to raise_error(NotMovieClubMemberError)
     end
   end

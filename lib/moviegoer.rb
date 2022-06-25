@@ -2,10 +2,10 @@ class NotMovieClubMemberError < RuntimeError
 end
 class Moviegoer
   attr_reader :age, :member
+
   def initialize(age, member: false)
     @age = age
     @member = member
-
   end
 
   def ticket_price
@@ -17,11 +17,11 @@ class Moviegoer
   end
 
   def claim_free_popcorn!
+    # raise NotMovieClubMemberError unless member
     @member ? "🍿" : (raise NotMovieClubMemberError)
-  #   "🍿" if
-  #   raise NotMovieClubMemberError unless member
-
+    # raise NotMovieClubMemberError, "no popcorn for you" unless @member
+    # "🍿"
   end
 end
-movie = Moviegoer.new(21)
-puts movie.claim
+movie = Moviegoer.new(17)
+p movie.claim_free_popcorn!
