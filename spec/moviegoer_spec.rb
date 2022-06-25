@@ -5,6 +5,9 @@ RSpec.describe Moviegoer do
   let(:moviegoer_2) { Moviegoer.new(65)}
   let(:moviegoer_3) { Moviegoer.new(21)}
   let(:moviegoer_4) { Moviegoer.new(17)}
+  # let(:moviegoer_5) { Moviegoer.new(21, true)}
+  # let(:moviegoer_6) { Moviegoer.new(17, false)}
+
 
   context "ticket_price" do
     it "returns 10.00 ticket price for old-age pensioneers" do
@@ -16,13 +19,22 @@ RSpec.describe Moviegoer do
     end
   end
 
-  context "scary movie" do
+  context "watch scary movie" do
     it "allows to watch scary movie if 18 and above" do
       expect(moviegoer_3.watch_scary_movie?).to eq(true)
     end
 
     it "doesn't allow to watch scary movie if age is less than 18" do
       expect(moviegoer_4.watch_scary_movie?).to eq(false)
+    end
+  end
+
+  context "entitlesd to free popcorn" do
+    it "returns true for a movie club member" do
+      expect(moviegoer_3.claim_free_popcorn!).to eq("🍿")
+    end
+    it "returns error for a movie club member" do
+      expect { moviegoer_4.claim_free_popcorn! }.to raise_error(NotMovieClubMemberError)
     end
   end
 
