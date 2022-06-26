@@ -2,7 +2,7 @@ require "resistor_color"
 
 RSpec.describe ResistorColors do
   it "returns two digit number when entered color names as input" do
-    expect(subject.resistor).to eq(15)
+    expect(subject.resistance_value(["brown","green"])).to eq(15)
   end
 
 end
