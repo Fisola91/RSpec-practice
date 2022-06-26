@@ -5,8 +5,8 @@ RSpec.describe Moviegoer do
   let(:moviegoer_2) { Moviegoer.new(65)}
   let(:moviegoer_3) { Moviegoer.new(21)}
   let(:moviegoer_4) { Moviegoer.new(17)}
-  # let(:moviegoer_5) { Moviegoer.new(21, true)}
-  # let(:moviegoer_6) { Moviegoer.new(17, false)}
+  let(:moviegoer_5) { Moviegoer.new(21, member: true)}
+  let(:moviegoer_6) { Moviegoer.new(17, member: false)}
 
 
   context "ticket_price" do
@@ -31,10 +31,10 @@ RSpec.describe Moviegoer do
 
   context "entitlesd to free popcorn" do
     it "returns true for a movie club member" do
-      expect(moviegoer_3.claim_free_popcorn!).to eq("🍿")
+      expect(moviegoer_5.claim_free_popcorn!).to eq("🍿")
     end
     it "returns error for a non-member" do
-      expect { moviegoer_4.claim_free_popcorn! }.to raise_error(NotMovieClubMemberError)
+      expect { moviegoer_6.claim_free_popcorn! }.to raise_error(NotMovieClubMemberError)
     end
   end
 

@@ -8,11 +8,6 @@ RSpec.describe ResistorColors do
     expect(subject.resistance_value( ["orange", "yellow"])).to eq(34)
   end
 
-  # it "can check for error" do
-  #   expect(subject.resistance_value( ["blu", "white"])).to eq(69)
-  # end
-
-
 
 end
 # program takes color names as input

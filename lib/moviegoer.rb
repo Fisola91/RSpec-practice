@@ -23,5 +23,5 @@ class Moviegoer
     # "🍿"
   end
 end
-movie = Moviegoer.new(17)
-p movie.claim_free_popcorn!
+# movie = Moviegoer.new(17)
+# p movie.claim_free_popcorn!
