@@ -11,17 +11,21 @@ class ResistorColors
     grey: 8,
     white: 9
   }
+  def initialize(bands = [])
+    @bands = bands
+  end
 
 
   def resistance_value(bands)
+    validate_band_name
     bands.map { |band| BANDS[band.to_sym]}.join.to_i
-
 
   end
 
   private
+
   def validate_band_name
-    bands.each do |band|
+    @bands.each do |band|
       unless BANDS.key?(band.to_sym)
         raise ArgumentError, "wrong band name(check the argument provided)"
       end
@@ -29,8 +33,8 @@ class ResistorColors
   end
 end
 
-resis = ResistorColors.new
-p resis.resistance_value(["brown","green"] )
+# resis = ResistorColors.new
+# p resis.resistance_value(["brown","green"] )
 # BANDS = {
 #   black: 0,
 #   brown: 1,
