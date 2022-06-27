@@ -9,6 +9,11 @@ class PredicateEnumerables
   end
 
   def twenty_first_century_years?(year_list)
+    raise ArgumentError, "The year_list can't be empty" if year_list.empty?
     year_list.all? { |year| year.between?(2001, 2100)}
+  end
+
+  def valid_scores?(score_list, perfect_score)
+    score_list.one? { |list, value| score_list[list] == perfect_score}
   end
 end

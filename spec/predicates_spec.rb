@@ -52,8 +52,18 @@ RSpec.describe PredicateEnumerables do
         expect(subject.twenty_first_century_years?(year_list)).to be false
       end
 
+      it "returns error when the list i empty" do
+        year_list = []
+        expect {subject.twenty_first_century_years?(year_list) }.to raise_error(ArgumentError, "The year_list can't be empty")
+      end
     end
 
-
+    describe "correct format" do
+      it "returns true when one value is equal" do
+        score_list = {arsenal: 1, chelsea: 2, manutd: 3, liverpool: 4, mancity: 6}
+        perfect_score = 1
+        expect(subject.valid_scores?(score_list, perfect_score)). to be true
+      end
+    end
   end
 end
