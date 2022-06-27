@@ -37,6 +37,4 @@ RSpec.describe Moviegoer do
       expect { moviegoer_6.claim_free_popcorn! }.to raise_error(NotMovieClubMemberError)
     end
   end
-
-
 end
