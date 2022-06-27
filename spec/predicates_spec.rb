@@ -77,6 +77,12 @@ RSpec.describe PredicateEnumerables do
         expect(subject.valid_scores?(score_list, perfect_score)). to be false
       end
 
+      it "returns false when list is empty" do
+        score_list = {}
+        perfect_score = 1
+        expect(subject.valid_scores?(score_list, perfect_score)). to be false
+      end
+
     end
   end
 end
