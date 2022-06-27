@@ -7,7 +7,10 @@ RSpec.describe ResistorColors do
     expect(subject.resistance_value( ["grey", "white"])).to eq(89)
     expect(subject.resistance_value( ["orange", "yellow"])).to eq(34)
   end
-
+  it "returns error when bands name is entered incorrectly" do
+    expect { subject.resistance_value( ["orang", "yello"]) }.to raise_error(ArgumentError, "wrong band name: orang, yello")
+    expect { subject.resistance_value( ["brown", "yello"]) }.to raise_error(ArgumentError, "wrong band name: yello")
+  end
 
 end
 # program takes color names as input

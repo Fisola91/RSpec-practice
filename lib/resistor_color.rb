@@ -22,14 +22,16 @@ class ResistorColors
     #     raise ArgumentError, "wrong band name(check the argument provided)"
     #   end
     # end
-
-    bands.map {do |band| BANDS[band.to_sym] }.join.to_i
+    bands = bands.map(&:to_sym)
+    wrong_band_names = bands - BANDS.keys
+    if wrong_band_names.any?
+      raise ArgumentError, "wrong band name: #{wrong_band_names.join(', ')}" #if bands.none? { |band| BANDS.keys.include?(band) }
+    end
+    bands.map { |band| BANDS[band] }.join.to_i # BANDS.fetch(band)
     # validate_band_name
   end
 
   # private
-
-
 
   # def validate_band_name
   #   BANDS.each do |band, value|
@@ -40,8 +42,8 @@ class ResistorColors
   # end
 end
 
-resis = ResistorColors.new
-p resis.resistance_value(["brown","green"] )
+# resis = ResistorColors.new
+# p resis.resistance_value(["brown","green"] )
 # # p resis.validate_band_name
 # # BANDS = {
 #   black: 0,

@@ -1,12 +1,12 @@
 require "moviegoer"
 
 RSpec.describe Moviegoer do
-  let(:moviegoer) { Moviegoer.new(16)}
-  let(:moviegoer_2) { Moviegoer.new(65)}
-  let(:moviegoer_3) { Moviegoer.new(21)}
-  let(:moviegoer_4) { Moviegoer.new(17)}
-  let(:moviegoer_5) { Moviegoer.new(21, member: true)}
-  let(:moviegoer_6) { Moviegoer.new(17, member: false)}
+  let(:moviegoer) { Moviegoer.new(16) }
+  let(:moviegoer_2) { Moviegoer.new(65) }
+  let(:moviegoer_3) { Moviegoer.new(21) }
+  let(:moviegoer_4) { Moviegoer.new(17) }
+  let(:moviegoer_5) { Moviegoer.new(21, member: true) }
+  let(:moviegoer_6) { Moviegoer.new(17, member: false) }
 
 
   context "ticket_price" do
