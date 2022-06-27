@@ -58,12 +58,25 @@ RSpec.describe PredicateEnumerables do
       end
     end
 
-    describe "correct format" do
+    describe "valid score" do
       it "returns true when one value is equal" do
         score_list = {arsenal: 1, chelsea: 2, manutd: 3, liverpool: 4, mancity: 6}
         perfect_score = 1
         expect(subject.valid_scores?(score_list, perfect_score)). to be true
       end
+
+      it "returns true when equal" do
+        score_list = {arsenal: 1, chelsea: 2, manutd: 3, liverpool: 4, mancity: 6}
+        perfect_score = 2
+        expect(subject.valid_scores?(score_list, perfect_score)). to be true
+      end
+
+      it "returns false when list value is not equal perfect_score" do
+        score_list = {arsenal: 1, chelsea: 2, manutd: 3, liverpool: 4, mancity: 6}
+        perfect_score = 8
+        expect(subject.valid_scores?(score_list, perfect_score)). to be false
+      end
+
     end
   end
 end
