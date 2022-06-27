@@ -16,4 +16,8 @@ class PredicateEnumerables
   def valid_scores?(score_list, perfect_score)
     score_list.one? { |list, value| score_list[list] == perfect_score}
   end
+
+  def correct_format?(word_list)
+    word_list.none? { |list| !list.upcase }
+  end
 end
