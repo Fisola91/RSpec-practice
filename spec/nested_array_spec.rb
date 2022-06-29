@@ -21,14 +21,27 @@ RSpec.describe NestedArray do
 
   describe "add another row" do
     let(:array) { [["John", nil, "Josh"], [nil, "Mikel", nil]]}
+
     it "adds another array ['Adu', nil, 'Fisola'] to the third row" do
-      output = [["John", nil, "Josh"], [nil, "Mikel", nil], ["Adu", nil, "Fisola"] ]
-      expect(subject.add_another_row(array, 2)).to eq(output)
+      expected_output =
+        [
+          ["John", nil, "Josh"],
+          [nil, "Mikel", nil],
+          ["Adu", nil, "Fisola"]
+        ]
+      new_array = ["Adu", nil, "Fisola"]
+      expect(subject.add_another_row(array, new_array)).to eq(expected_output)
     end
 
     it "adds another array [nil, 'Mary', 'Jay] to the third row" do
-      output = [["John", nil, "Josh"], [nil, "Mikel", nil], [nil, "Mary", "Jay"]]
-      expect(subject.add_another_row(array, 2)).to eq(output)
+      expected_output =
+        [
+          ["John", nil, "Josh"],
+          [nil, "Mikel", nil],
+          [nil, "Mary", "Jay"]
+      ]
+      new_array = [nil, "Mary", "Jay"]
+      expect(subject.add_another_row(array, new_array)).to eq(expected_output)
     end
   end
 
