@@ -9,10 +9,12 @@ class NestedArray
   end
 
   def add_another_row(chart, row_to_add)
-    chart[2] = Array.new(3)
-    chart[2][0] = "Adu"
-    chart[2][2] = "Fisola"
+
+    chart[row_to_add] = Array.new(3)
+    chart[row_to_add][0] = "Adu"
+    chart[row_to_add][2] = "Fisola"
     chart
+
   end
 end
 # [

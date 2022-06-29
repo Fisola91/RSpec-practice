@@ -19,12 +19,21 @@ RSpec.describe NestedArray do
     end
   end
 
+  describe "add another row" do
+    let(:array) { [["John", nil, "Josh"], [nil, "Mikel", nil]]}
+    it "adds another array ['Adu', nil, 'Fisola'] to the third row" do
+      output = [["John", nil, "Josh"], [nil, "Mikel", nil], ["Adu", nil, "Fisola"] ]
+      expect(subject.add_another_row(array, 2)).to eq(output)
+    end
 
-  # it "add another row nested array ['Adu', nil, 'Fisola']" do
-  #   let(:array) { [["John", nil, "Josh"], [nil, "Mikel", nil]]}
-  #   output = [[nil, nil, nil], [nil, nil, nil], ["Adu", nil, "Fisola"] ]
-  #   expect(subject.add_another_row(array, 2)).to eq(output)
-  # end
+    it "adds another array [nil, 'Mary', 'Jay] to the third row" do
+      output = [["John", nil, "Josh"], [nil, "Mikel", nil], [nil, "Mary", "Jay"]]
+      expect(subject.add_another_row(array, 2)).to eq(output)
+    end
+  end
+
+
+
 
   # it "delete seat from row" do
   #   output = [[nil, nil, nil], [nil, nil, nil, 1000]]
