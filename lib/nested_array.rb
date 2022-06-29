@@ -9,8 +9,12 @@ class NestedArray
   end
 
   def add_another_row(chart, row_to_add)
-
     chart << row_to_add
+  end
+
+  def delete_row_from_chart(chart, row_index)
+    chart.delete_at(row_index)
+    chart
   end
 end
 # [

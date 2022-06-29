@@ -1,21 +1,22 @@
 require "nested_array"
+
 RSpec.describe NestedArray do
 
   it "returns a 2 dimesional array with nil values all through the array" do
-    output = [[nil, nil, nil], [nil, nil, nil]]
-    expect(subject.blank_seating_chart(2, 3)).to eq(output)
+    expected_output = [[nil, nil, nil], [nil, nil, nil]]
+    expect(subject.blank_seating_chart(2, 3)).to eq(expected_output)
   end
 
   describe "add seat to row exercise" do
     let(:array) { [[nil, nil, nil], [nil, nil, nil]]}
-    it "returns 2D array where Josh is added to the end of the second row" do
-      output = [[nil, nil, nil], [nil, nil, nil, "Josh"]]
-      expect(subject.add_seat_to_row(array, 1, "Josh")).to eq(output)
+    it "returns 2D array when Josh is added to the end of the second row" do
+      expected_output = [[nil, nil, nil], [nil, nil, nil, "Josh"]]
+      expect(subject.add_seat_to_row(array, 1, "Josh")).to eq(expected_output)
     end
 
-    it "returns 2D array where Mike is added to the end of the first row"do
-    output = [[nil, nil, nil, "Mike"], [nil, nil, nil]]
-    expect(subject.add_seat_to_row(array, 0, "Mike")).to eq(output)
+    it "returns 2D array when Mike is added to the end of the first row"do
+    expected_output = [[nil, nil, nil, "Mike"], [nil, nil, nil]]
+    expect(subject.add_seat_to_row(array, 0, "Mike")).to eq(expected_output)
     end
   end
 
@@ -39,14 +40,44 @@ RSpec.describe NestedArray do
           ["John", nil, "Josh"],
           [nil, "Mikel", nil],
           [nil, "Mary", "Jay"]
-      ]
+        ]
       new_array = [nil, "Mary", "Jay"]
       expect(subject.add_another_row(array, new_array)).to eq(expected_output)
     end
   end
 
+  describe "delete row from chart" do
+    let(:array) do
+      [
+        ["John", nil, "Josh"],
+        [nil, "Mikel", nil],
+        ["Emma", "Viku", "Helen"],
+        ["Comfort", "Israel", "Eunice"]
+      ]
+    end
 
+    it "deletes row at row_index 1 of the chart" do
+      expected_output =
+       [
+          ["John", nil, "Josh"],
+          ["Emma", "Viku", "Helen"],
+          ["Comfort", "Israel", "Eunice"]
+       ]
 
+      expect(subject.delete_row_from_chart(array, 1)).to eq(expected_output)
+    end
+
+    it "deletes row at row_index 3 of the chart" do
+      expected_output =
+      [
+        ["John", nil, "Josh"],
+        [nil, "Mikel", nil],
+        ["Emma", "Viku", "Helen"],
+      ]
+      expect(subject.delete_row_from_chart(array, 3)).to eq(expected_output)
+
+    end
+  end
 
   # it "delete seat from row" do
   #   output = [[nil, nil, nil], [nil, nil, nil, 1000]]
