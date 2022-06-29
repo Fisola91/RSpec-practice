@@ -7,6 +7,11 @@ class NestedArray
     chart[row_index].push(seat_to_add)
     chart
   end
+
+  def add_another_row(chart, row_to_add)
+    chart[2] = Array.new(3)
+    chart
+  end
 end
 # [
 #   #   [nil, nil, nil],

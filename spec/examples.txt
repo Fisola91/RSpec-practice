@@ -43,8 +43,9 @@ example_id                                 | status | run_time        |
 ./spec/moviegoer_spec.rb[1:2:2]            | passed | 0.00056 seconds |
 ./spec/moviegoer_spec.rb[1:3:1]            | passed | 0.00169 seconds |
 ./spec/moviegoer_spec.rb[1:3:2]            | passed | 0.00722 seconds |
-./spec/nested_array_spec.rb[1:1]           | passed | 0.00078 seconds |
-./spec/nested_array_spec.rb[1:2]           | passed | 0.00043 seconds |
+./spec/nested_array_spec.rb[1:1]           | passed | 0.00153 seconds |
+./spec/nested_array_spec.rb[1:2]           | passed | 0.00084 seconds |
+./spec/nested_array_spec.rb[1:3]           | passed | 0.00026 seconds |
 ./spec/predicates_spec.rb[1:1:1]           | passed | 0.00216 seconds |
 ./spec/predicates_spec.rb[1:1:2]           | passed | 0.00024 seconds |
 ./spec/predicates_spec.rb[1:1:3]           | passed | 0.001 seconds   |

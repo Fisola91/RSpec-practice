@@ -10,4 +10,9 @@ RSpec.describe NestedArray do
     expect(subject.add_seat_to_row(array, 1, 1000)).to eq(output)
   end
 
+  it "add another row nested array" do
+    output = [[nil, nil, nil], [nil, nil, nil], [nil, nil, nil] ]
+    expect(subject.add_another_row(array, 2)).to eq(output)
+  end
+
 end
