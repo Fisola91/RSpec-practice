@@ -16,6 +16,12 @@ class NestedArray
     chart.delete_at(row_index)
     chart
   end
+
+  def count_empty_seats(chart)
+    chart.inject(0) do |sum, row|
+     p sum += row.count { |seat| seat.nil?}
+    end
+  end
 end
 # [
 #   #   [nil, nil, nil],
