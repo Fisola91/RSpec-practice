@@ -18,16 +18,15 @@ class NestedArray
   end
 
   def count_empty_seats(chart)
-    chart.inject(0) do |sum, row|
-     p sum += row.count { |seat| seat.nil?}
+    chart.inject(0) do |total, row|
+      total += row.count { |seat| seat.nil?}
     end
   end
 
   def find_favorite(array_of_hash_objects)
     array_of_hash_objects.select do |row|
-      row.each do |name, data|
-        row if data == true
-      end
+      puts row
+      row[:is_my_favorite?] == true ? row : nil
     end
   end
 end
@@ -37,3 +36,9 @@ end
 #   # ]
 # nest = NestedArray.new
 # nest.def subject.add_seat_to_row(chart, row_index, seat_to_add)
+
+# row.each do |name, data|
+#   if name == "Ruby"
+#     p "Hi hi"
+#   end
+# end

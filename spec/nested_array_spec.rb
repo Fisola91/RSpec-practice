@@ -125,9 +125,9 @@ RSpec.describe NestedArray do
         { name: 'Ruby', is_my_favorite?: true },
         { name: 'JavaScript', is_my_favorite?: false },
         { name: 'HTML', is_my_favorite?: false }
-        ]
-      end
-    it "returns hash which has the key/value pair:is_my_fav? => true" do
+      ]
+    end
+    it "returns hash which has the key/value pair if, is_my_fav? => true" do
       expected_output = { name: 'Ruby', is_my_favorite?: true }
       expect(subject.find_favorite(array_of_hash)).to eq(expected_output)
     end
