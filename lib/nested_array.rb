@@ -24,8 +24,7 @@ class NestedArray
   end
 
   def find_favorite(array_of_hash_objects)
-    array_of_hash_objects.select do |row|
-      puts row
+    array_of_hash_objects.find do |row|
       row[:is_my_favorite?] == true ? row : nil
     end
   end
