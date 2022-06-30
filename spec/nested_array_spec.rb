@@ -120,29 +120,38 @@ RSpec.describe NestedArray do
   end
 
   describe "favorite" do
-    let(:array_of_hash) do
-      [
-        { name: 'Ruby', is_my_favorite?: true },
-        { name: 'JavaScript', is_my_favorite?: false },
-        { name: 'HTML', is_my_favorite?: false }
-      ]
-    end
-    let(:array_of_hash_1) do
-      [
-        { name: 'Ruby', is_my_favorite?: false },
-        { name: 'JavaScript', is_my_favorite?: false },
-        { name: 'HTML', is_my_favorite?: false }
-      ]
-    end
-    it "returns hash if it has the key/value pair: is_my_fav? => true" do
-      expected_output = { name: 'Ruby', is_my_favorite?: true }
-      expect(subject.find_favorite(array_of_hash)).to eq(expected_output)
+    context "when ruby is the favorite" do
+      let(:array_of_hash) do
+        [
+          { name: 'Ruby', is_my_favorite?: true },
+          { name: 'JavaScript', is_my_favorite?: false },
+          { name: 'HTML', is_my_favorite?: false }
+        ]
+      end
+      it "returns hash if it has the key/value pair: is_my_fav? => true" do
+        expected_output = { name: 'Ruby', is_my_favorite?: true }
+        expect(subject.find_favorite(array_of_hash)).to eq(expected_output)
+      end
     end
 
-    it "returns nil if all the key/value pair: is_my_fav? => false" do
-      expected_output = { name: 'Ruby', is_my_favorite?: true }
-      expect(subject.find_favorite(array_of_hash_1)).to eq(nil)
+    context "when there is no favorite" do
+      let(:array_of_hash_1) do
+        [
+          { name: 'Ruby', is_my_favorite?: false },
+          { name: 'JavaScript', is_my_favorite?: false },
+          { name: 'HTML', is_my_favorite?: false }
+        ]
+      end
+      it "returns nil if all the key/value pair: is_my_fav? => false" do
+        expected_output = nil
+        expect(subject.find_favorite(array_of_hash_1)).to eq(expected_output)
+      end
     end
+
+
+
+
+
   end
 
   # it "delete seat from row" do
