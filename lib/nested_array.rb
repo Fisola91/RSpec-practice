@@ -22,6 +22,14 @@ class NestedArray
      p sum += row.count { |seat| seat.nil?}
     end
   end
+
+  def find_favorite(array_of_hash_objects)
+    array_of_hash_objects.select do |row|
+      row.each do |name, data|
+        row if data == true
+      end
+    end
+  end
 end
 # [
 #   #   [nil, nil, nil],
