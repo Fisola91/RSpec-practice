@@ -1,16 +1,14 @@
 class CaesarCipher
   ALPHABET = ('a'..'z').to_a.reverse
   def caesar_cipher(string, factor)
-    p ALPHABET
     string = string.downcase.split("")
-    string.each_with_index.map do |char, _|
+    string.map do |char|
       if char.match(/\w/).nil?
-        char
+        p char
       else
-        p ALPHABET[ALPHABET.index(char) - factor]
+        ALPHABET[ALPHABET.index(char) - factor]
       end
     end.join.capitalize
-    # string.join
   end
 end
 
