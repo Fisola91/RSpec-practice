@@ -147,11 +147,6 @@ RSpec.describe NestedArray do
         expect(subject.find_favorite(array_of_hash_1)).to eq(expected_output)
       end
     end
-
-
-
-
-
   end
 
   # it "delete seat from row" do
