@@ -9,7 +9,7 @@ class CaesarCipher
       else
         p ALPHABET[ALPHABET.index(char) - factor]
       end
-    end.join
+    end.join.capitalize
     # string.join
   end
 end
