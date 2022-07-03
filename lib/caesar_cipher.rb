@@ -5,12 +5,14 @@ class CaesarCipher
     string.map do |char|
       if char.match(/\w/).nil?
         char
+      elsif char.match(/\d/)
+        raise ArgumentError, "make sure the method argument is alphabet"
       else
-        p ALPHABET[ALPHABET.index(char) - factor]
+        ALPHABET[ALPHABET.index(char) - factor]
       end
     end.join.capitalize
   end
 end
 
-cc = CaesarCipher.new
-cc.caesar_cipher("what a string!", 5)
+# cc = CaesarCipher.new
+# p cc.caesar_cipher("What a 6string!", 5)
