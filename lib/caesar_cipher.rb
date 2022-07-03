@@ -4,9 +4,9 @@ class CaesarCipher
     string = string.downcase.split("")
     string.map do |char|
       if char.match(/\w/).nil?
-        p char
+        char
       else
-        ALPHABET[ALPHABET.index(char) - factor]
+        p ALPHABET[ALPHABET.index(char) - factor]
       end
     end.join.capitalize
   end
