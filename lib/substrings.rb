@@ -18,16 +18,18 @@ def substrings(word, array)
   word_array = word.downcase.split
   word_array.each do |letter|
     array.each do |arr|
-      if letter.include?(arr) #This shows if letter include any of each word in the dictionary array
+      # Letter includes each word in the dictionary array
+      if letter.include?(arr)
         if hash.has_key?(arr)
           hash[arr] += 1
         else
           hash[arr] = 1
         end
       end
+      raise ArgumentError, "check" unless letter.include?(arr)
     end
   end
-  hash
+  p hash
 end
 
 

@@ -102,6 +102,7 @@ example_id                                 | status | run_time        |
 ./spec/string_calculator_spec.rb[1:12]     | passed | 0.00149 seconds |
 ./spec/string_calculator_spec.rb[1:13]     | passed | 0.00097 seconds |
 ./spec/string_calculator_spec.rb[1:14]     | passed | 0.00109 seconds |
-./spec/substrings_spec.rb[1:1]             | passed | 0.00099 seconds |
+./spec/substrings_spec.rb[1:1:1]           | failed | 0.00034 seconds |
+./spec/substrings_spec.rb[1:2:1]           | passed | 0.00223 seconds |
 ./spec/two_fer_spec.rb[1:1]                | failed | 0.00042 seconds |
 ./spec/two_fer_spec.rb[1:2]                | failed | 0.02207 seconds |
