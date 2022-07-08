@@ -20,7 +20,11 @@ def substrings(word, array)
     array.each do |arr|
       # Letter includes each word in the dictionary array
       if letter.include?(arr)
-        hash.has_key?(arr) ? hash[arr] += 1 : hash[arr] = 1
+        if hash.has_key?(arr)
+          hash[arr] += 1
+        else
+          hash[arr] = 1
+        end
       end
       #raise ArgumentError, "check" unless letter.include?(arr)
     end
