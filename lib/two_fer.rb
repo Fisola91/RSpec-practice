@@ -1,8 +1,7 @@
-def two_fer
-  name = gets.chomp
-  if name.empty?
-    puts "One for #{name}, one for me"
+def two_fer(name = nil)
+  if name.nil? || name.empty?
+    "One for you, one for me."
   else
-    puts "One for you, one for me"
+    "One for #{name}, one for me."
   end
 end

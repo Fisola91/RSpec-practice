@@ -60,6 +60,9 @@ RSpec.describe PredicateEnumerables do
     end
   end
 
+
+
+
   describe "valid score" do
     it "returns true when one value is equal" do
       score_list = {arsenal: 1, chelsea: 2, manutd: 3, liverpool: 4, mancity: 6}
